@@ -18,11 +18,11 @@ export function CardsProdutos () {
           
             case 'Hioki Sushi':
                 imgSrc = imgSrcFood2;
-                break;
+            break;
           
             default:
                 imgSrc = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKsUb7vFmxg9tbsUoNJO-hbAKzslLklM_Nng&s';
-              break;
+            break;
         }      
     } 
     
