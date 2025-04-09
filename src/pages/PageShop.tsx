@@ -1,5 +1,18 @@
+import Hero from "../components/Hero"
+import { LojaBanner } from "../components/LojaBanner"
+import { Products } from "../components/ListagemProdutos"
+import Footer from "../components/Footer"
+
 function shop() {
-    return <h1>Sobre Nós</h1>
+    return (
+      <>
+        <Hero />
+        <LojaBanner />
+        <Products />
+        <Footer />
+      </>
+    )
   }
-  export default shop
+
+export default shop
   

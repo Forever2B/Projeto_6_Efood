@@ -1,3 +1,4 @@
+import { ListagemContainer } from '../../GlobalStyle.tsx'
 import {Card, CardDestaque} from './Cards/index.tsx'
 import * as s from './styles.tsx'
 
@@ -5,7 +6,7 @@ export default function ListagemLojas() {
 
 
     return (
-        <s.ListagemContainer>
+        <ListagemContainer>
             <s.UlCustom>
                 <CardDestaque />
                 <Card />
@@ -14,6 +15,6 @@ export default function ListagemLojas() {
                 <Card />
                 <Card />
             </s.UlCustom>
-        </s.ListagemContainer>
+        </ListagemContainer>
     )
 }

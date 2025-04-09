@@ -64,9 +64,15 @@ export const TextCard = styled.div`
         border: none;
         font-size: 14px;
         font-weight: 700;
-        cursor: pointer;
         color: #FFEBD9;
         background-color: #E66767;
+        cursor: pointer;
+        transition: ease-in-out 0.2s;
+        
+        &:hover {
+            transition: ease-in-out 0.1s;
+            transform: scale(105%);
+        }
     }
 `
 export const Tag = styled.div`

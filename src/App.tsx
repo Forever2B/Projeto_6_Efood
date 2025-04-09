@@ -7,7 +7,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/pageShop" element={<PageShop />} />
+      <Route path="/pageShop/:id" element={<PageShop />} />
     </Routes>
   )
 }

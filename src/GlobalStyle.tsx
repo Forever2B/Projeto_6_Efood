@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
   /* Reset básico */
@@ -15,4 +15,12 @@ const GlobalStyle = createGlobalStyle`
     background-color: #FFF8F2;
   }
 `
+
+export const ListagemContainer = styled.div`
+    display: flex;
+    width: 100%;
+    padding-bottom: 120px;
+    justify-content: center;
+`
+
 export default GlobalStyle
