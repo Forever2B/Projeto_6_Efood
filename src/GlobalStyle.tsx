@@ -14,6 +14,17 @@ const GlobalStyle = createGlobalStyle`
   body {
     background-color: #FFF8F2;
   }
+
+  .buttonStyle {
+        display: flex;
+        font-weight: 700;
+        font-size: 14px;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        background-color:#FFEBD9;
+        color:#E66767;
+  }
 `
 
 export const ListagemContainer = styled.div`

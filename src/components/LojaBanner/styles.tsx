@@ -30,7 +30,7 @@ export const Banner = styled.div<BannerProps>`
     }
     & > * {
     position: relative;
-    z-index: 2;
+    z-index: 1;
   }
 
   span{
