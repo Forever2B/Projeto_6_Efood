@@ -3,13 +3,17 @@ import logo from '../../assets/logo.png'
 
 import { useParams } from 'react-router-dom'
 import { FaShoppingBasket } from "react-icons/fa";
+// Contextos
+import { useUI } from '../../Contexts/UiContext.tsx';
+import { useCarrinho } from '../../Contexts/ContextCarrinho.tsx';
+//
 
 export default function Hero() {
+    const { pedidos } = useCarrinho();
+    const produtosNoCarrinho = pedidos.length; 
 
-    // carrinho inacabado
-    const produtosNoCarrinho = 0
-    //
-
+    const { abrirCarrinho } = useUI();
+    
     const { id } = useParams<{ id?: string }>()
     const isHome = !id
 
@@ -24,7 +28,7 @@ export default function Hero() {
                 </h1>
             </div>
                 {!isHome ? (
-                    <s.CarrinhoButton className='buttonStyle'>
+                    <s.CarrinhoButton onClick={() => abrirCarrinho()} type='button' className='buttonStyle'>
                         <span>{produtosNoCarrinho} produto(s) no carrinho</span>
                         <FaShoppingBasket />
                     </s.CarrinhoButton>

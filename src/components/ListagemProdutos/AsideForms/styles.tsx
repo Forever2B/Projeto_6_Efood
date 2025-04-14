@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-export const AsideContainer = styled.aside`
+export const AsideContainer = styled.div`
     position: fixed;
     height: 100vh;
     width: 100vw;
@@ -22,10 +22,10 @@ export const AsideContainer = styled.aside`
         position: relative;
         z-index: 4;
     }
-    > div{
-        width: 360px;
+    > aside{
+        width: 376px;
         height: 1624px;
-        padding: 8px 32px;
+        padding: 32px 8px;
         margin-left: auto;
         background-color: #E66767;
     }

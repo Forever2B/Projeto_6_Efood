@@ -1,12 +1,14 @@
 import { useState } from "react";
 
 // Componentes
-import { AsideFinish } from "./AsideFinish";
 import { AsideCarrinho } from "./AsideCarrinho";
 import { AsideForm } from "./AsideForm";
 import { AsidePayment } from "./AsidePayment";
+import { AsideFinish } from "./AsideFinish";
 // Styles
 import { AsideContainer } from "./styles";
+// Contextos
+import { useUI } from "../../../Contexts/UIContext";
 //
 
 export type AsidesProps = {
@@ -15,11 +17,13 @@ export type AsidesProps = {
 
 export function AsideBody () {
     const [asidePageSwitch, SetAsidePageSwitch] = useState('CARRINHO')
+    const { carrinhoAberto, fecharCarrinho } = useUI();
 
+  if (!carrinhoAberto) return null;
 
     return (
-        <AsideContainer>
-            <div>
+        <AsideContainer onClick={() => fecharCarrinho()}>
+            <aside onClick={(e) => e.stopPropagation()}>
                 {asidePageSwitch == 'CARRINHO' ? (
                     <AsideCarrinho setarAside={SetAsidePageSwitch}/>): null}
                 {asidePageSwitch == 'FORM' ? (
@@ -28,7 +32,7 @@ export function AsideBody () {
                     <AsidePayment setarAside={SetAsidePageSwitch}/>): null}
                 {asidePageSwitch == 'FINISH' ? (
                     <AsideFinish setarAside={SetAsidePageSwitch}/>): null}
-            </div>
+            </aside>
         </AsideContainer>
     )
 }

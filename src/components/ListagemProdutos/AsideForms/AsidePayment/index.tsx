@@ -1,6 +1,6 @@
 import { AsidesProps } from '..';
 // Styles
-import * as s from './styles';
+// import * as s from './styles';
 //
 
 export function AsidePayment({setarAside}: AsidesProps) {
@@ -11,6 +11,10 @@ export function AsidePayment({setarAside}: AsidesProps) {
     }
 
     return (
-        <></>
+        <>
+            Aside Payment
+            <br />
+            <button type='button' onClick={() => handleClick()}>Proximo Aside</button>
+        </>
     )
 }

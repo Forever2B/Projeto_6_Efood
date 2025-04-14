@@ -5,6 +5,8 @@ import imgSrcFood1 from '../../../assets/pizza.png'
 import imgSrcFood2 from '../../../assets/hotroll.jpg'
 //Styles
 import * as s from './style'
+//contextos
+import { useCarrinho } from '../../../Contexts/ContextCarrinho';
 //
 
 type FilhoProps = {
@@ -43,9 +45,17 @@ export function ModalProduto({isAtiveSend}: FilhoProps) {
         }      
     }
 
+    const { adicionarPedido } = useCarrinho();
+
     const handleClick = () => {
+        adicionarPedido({
+                id: `${Date.now()}-${Math.random()}`,
+                nome: productTemp,
+                preco: value,
+                img: imgSrc});
         isAtiveSend(false);
     };
+
     
     FakeAPI()
     return (
