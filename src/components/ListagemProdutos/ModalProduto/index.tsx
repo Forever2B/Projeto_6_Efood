@@ -47,7 +47,7 @@ export function ModalProduto({isAtiveSend}: FilhoProps) {
 
     const { adicionarPedido } = useCarrinho();
 
-    const handleClick = () => {
+    const handleClickADD = () => {
         adicionarPedido({
                 id: `${Date.now()}-${Math.random()}`,
                 nome: productTemp,
@@ -55,11 +55,14 @@ export function ModalProduto({isAtiveSend}: FilhoProps) {
                 img: imgSrc});
         isAtiveSend(false);
     };
+    const handleClickCancel = () => {
+        isAtiveSend(false);
+    };
 
     
     FakeAPI()
     return (
-        <s.ProductModalContainer onClick={handleClick}>
+        <s.ProductModalContainer onClick={handleClickCancel}>
             <s.CardModal onClick={(e) => e.stopPropagation()}>
                 <img src={imgSrc} alt={productTemp} />
                 <s.ContainerTextModal>
@@ -68,7 +71,7 @@ export function ModalProduto({isAtiveSend}: FilhoProps) {
                         <p className='spacing'>{sumary}</p>
                         <p>{portion}</p>
                     </div>
-                    <button type='button' onClick={handleClick} className='buttonStyle'>Adicionar ao carrinho - R$ {value}</button>
+                    <button type='button' onClick={handleClickADD} className='buttonStyle'>Adicionar ao carrinho - R$ {value}</button>
                 </s.ContainerTextModal>
             </s.CardModal>
         </s.ProductModalContainer>
