@@ -1,9 +1,8 @@
 import { styled } from "styled-components";
 
-
-export const AsideForm = styled.form`
+export const AsidePaymentForm = styled.form`
     width: 345px;
-    height: 347px;
+    height: 219px;
     display: flex;
     flex-direction: column;
     color: #FFEBD9;
@@ -41,13 +40,26 @@ export const AsideForm = styled.form`
             display: flex;
             flex-direction: column;
         }
+        .input-group-small{
+            width: 87px;
+            display: flex;
+            flex-direction: column;
+        }
+        .input-group-bigger{
+            width: 228px;
+            display: flex;
+            flex-direction: column; 
+        }
         .form-two-inputs {
             display: flex;
             flex-direction: row;
             font-size: 20px;
         }
-        .space {
+        .space34 {
             margin-left: 34px;
+        }
+        .space30 {
+            margin-left: 30px;
         }
 
         input::-webkit-outer-spin-button,
@@ -58,7 +70,7 @@ export const AsideForm = styled.form`
     }
 `
 
-export const AsideFormContainer = styled.div `
+export const AsidePaymentContainer = styled.div `
  .buttonStyle {
     height: 24px;
     max-width: 344px;
