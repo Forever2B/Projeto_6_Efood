@@ -4,7 +4,7 @@ import logo from '../../assets/logo.png'
 import { useParams } from 'react-router-dom'
 import { FaShoppingBasket } from "react-icons/fa";
 // Contextos
-import { useUI } from '../../Contexts/UiContext.tsx';
+import { useUI } from '../../Contexts/UIContext.tsx';
 import { useCarrinho } from '../../Contexts/ContextCarrinho.tsx';
 //
 
