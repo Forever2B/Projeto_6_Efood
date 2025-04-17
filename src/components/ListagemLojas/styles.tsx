@@ -4,6 +4,7 @@ export const UlCustom = styled.ul`
     align-self: center;
     display: grid;
     column-gap: 80px;
+    row-gap: 48px;
     grid-template-columns: repeat(2, 1fr);
 `
 interface Props {
@@ -13,13 +14,13 @@ interface Props {
 export const LiCard = styled.li<Props>`
     display: flex;
     flex-direction: column;
-    margin-bottom: 48px;
     color: #E66767;
 
     .img {
         width: 472px;
         height: 217px;
         padding: 16px;
+        display: flex;
         background-image: url(${props => props.imageUrl});;
         background-size: cover;
         background-repeat: no-repeat;
@@ -41,7 +42,7 @@ export const LiCard = styled.li<Props>`
         img{
             width: 21px;
             height: 20px;
-            margin-left: 8px;
+            margin-left: 12px;
         }
     }
 `
@@ -88,7 +89,7 @@ export const TextCard = styled.div`
 `
 export const Tag = styled.div`
     display: flex;
-    margin-left: 8px;
+    margin-left: 12px;
     padding: 10px 6px;
     min-width: 61px;
     height: 26px;

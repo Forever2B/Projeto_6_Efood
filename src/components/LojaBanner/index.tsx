@@ -1,46 +1,20 @@
-import { useParams } from 'react-router-dom'
-
-import imgSrcFood1 from '../../assets/food01.png'
-import imgSrcFood2 from '../../assets/food02.png'
-
+//Api e contextos
+import { useApi } from '../../Contexts/ApiContext'
 // Estilos
 import * as s from './styles'
-
+//
 
 export function LojaBanner () {
-    const { id } = useParams<{ id: string }>()
-    let isHighlight: boolean = false; 
-    let Shoptag: string = '';
-    let imgSrc: string = '';
+    const { RestaurantAPI } = useApi()
 
-    function FakeAPI() {
-        switch (id) {
-            case 'La Dolce Vita Trattoria':
-                isHighlight = false;
-                Shoptag = 'Italiana';
-                imgSrc = imgSrcFood1;
-            break;
-          
-            case 'Hioki Sushi':
-                isHighlight = true;
-                Shoptag = 'Japonesa';
-                imgSrc = imgSrcFood2;
-                break;
-          
-            default:
-                imgSrc = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKsUb7vFmxg9tbsUoNJO-hbAKzslLklM_Nng&s';
-              break;
-        }      
-    } 
-    
-    FakeAPI()
+    if (!RestaurantAPI) return (<s.Banner imgBanner='https://t4.ftcdn.net/jpg/01/84/65/81/360_F_184658151_AgNIyLDq1uTeWimbkTUcF9osyZHI1Pj2.jpg'></s.Banner>)
     return(
-    <s.Banner imgBanner={imgSrc}>
+    <s.Banner imgBanner={RestaurantAPI.capa}>
         <div>
-            <span>{Shoptag}</span>
-            {isHighlight ? (<span>Destaque da semana</span>): ''}
+            <span>{RestaurantAPI.tipo}</span>
+            {RestaurantAPI.destacado ? (<span>Destaque da semana</span>): ''}
         </div>
-        <h2>{id}</h2>
+        <h2>{RestaurantAPI.titulo}</h2>
     </s.Banner>
     )
 }

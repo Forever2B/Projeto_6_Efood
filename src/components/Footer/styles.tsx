@@ -6,6 +6,7 @@ export const FooterBody = styled.footer`
     display: block;
     height: 298px;
     width: 100%;
+    margin-top: 120px;
     padding: 40px;
     background-color: #FFEBD9;
 

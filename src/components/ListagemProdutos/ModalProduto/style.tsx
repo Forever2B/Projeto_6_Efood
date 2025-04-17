@@ -27,6 +27,7 @@ export const ProductModalContainer = styled.div`
 `
 
 export const CardModal = styled.div`
+    position: relative;
     display: flex;
     padding: 32px;
     width: 1024px;
@@ -64,12 +65,26 @@ export const ContainerTextModal = styled.div `
         line-height: 22px;
         font-size: 14px;
         font-weight: 300;
+        
+        overflow-y: auto;
+        text-overflow: ellipsis;    
     }
     button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 218px;
         height: 24px;
         font-size: 14px;
         font-weight: 700;
+        bottom: 60px;
+        position: absolute;
         cursor: pointer;
+        transform-origin: center;
+
+        &:hover {
+            transition: ease-in-out 0.1s;
+            transform: scale(103%);
+        }
     }
 `

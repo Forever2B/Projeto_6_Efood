@@ -9,7 +9,7 @@ export function AsidePayment({setarAside}: AsidesProps) {
         const { pedidos, limparCarrinho } = useCarrinho();
         
         const totalEmCentavos = pedidos.reduce((acc, p) => {
-            const valor = Math.round(Number(p.preco.replace(',', '.')) * 100);
+            const valor = Math.round(Number(p.preco) * 100);
             return acc + valor;
           }, 0);
           
@@ -26,7 +26,7 @@ export function AsidePayment({setarAside}: AsidesProps) {
 
 
     const handleClick = (asidepage:string) => {
-        limparCarrinho()
+        if (asidepage === 'FINISH'){ limparCarrinho() }
         setarAside(asidepage);
     }
 

@@ -1,6 +1,14 @@
 import {styled} from 'styled-components'
 
 export const ContainerCarrinho = styled.div `
+    ul {
+      max-height: 796px;
+      overflow-y: auto;
+    }
+	::-webkit-scrollbar-thumb {
+        background-color: rgba(255, 235, 217, 0.8);
+    }
+
     .spanSpacing {
         font-size: 14px;
         margin-top: 40px;
@@ -26,6 +34,7 @@ export const ContainerCarrinho = styled.div `
     }
 `
 export const CardContainer = styled.li`
+position: relative;
   display: flex;
   position: relative;
   align-items: flex-start;
@@ -46,12 +55,13 @@ export const CardContainer = styled.li`
 
   .titleProductCard {
     font-weight: 900;
-    font-size: 18px;
+    font-size: 17px;
     height: 21px;
   }
 
   .priceProductCard {
-    margin-top: 14px;
+	position: absolute;
+	bottom: 32px;
     font-size: 14px;
     font-weight: 400;
     line-height: 22px;

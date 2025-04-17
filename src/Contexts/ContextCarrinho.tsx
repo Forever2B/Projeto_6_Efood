@@ -1,29 +1,23 @@
 import { createContext, useContext, useState, ReactNode } from "react";
-
-export type Pedido = {
-  id: string;
-  nome: string;
-  preco: string;
-  img: string;
-};
+import { Api_Type_Cardapio} from '../api/index'
 
 type CarrinhoContextType = {
-  pedidos: Pedido[];
-  adicionarPedido: (pedido: Pedido) => void;
-  removerPedido: (id: string) => void;
+  pedidos: Api_Type_Cardapio[];
+  adicionarPedido: (pedido: Api_Type_Cardapio) => void;
+  removerPedido: (id: number | undefined) => void;
   limparCarrinho: () => void;
 };
 
 const CarrinhoContext = createContext<CarrinhoContextType | null>(null);
 
 export const CarrinhoProvider = ({ children }: { children: ReactNode }) => {
-  const [pedidos, setPedidos] = useState<Pedido[]>([]);
+  const [pedidos, setPedidos] = useState<Api_Type_Cardapio[]>([]);
 
-  const adicionarPedido = (novoPedido: Pedido) => {
+  const adicionarPedido = (novoPedido: Api_Type_Cardapio) => {
     setPedidos(prev => [...prev, novoPedido]);
   };
 
-  const removerPedido = (id: string) => {
+  const removerPedido = (id: number | undefined) => {
     setPedidos(prev => prev.filter(p => p.id !== id));
   };
 

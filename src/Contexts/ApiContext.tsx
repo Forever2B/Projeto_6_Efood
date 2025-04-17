@@ -10,6 +10,12 @@ type ApiContextType = {
 
   ItemAPI: Api_Type_Cardapio | null
   setItemAPI: (data: Api_Type_Cardapio) => void
+
+  restaurantId: number
+  setRestaurantId: (data: number) => void
+
+  itemId: number
+  setItemId: (data:number) => void
 }
 
 const ApiContext = createContext<ApiContextType | undefined>(undefined)
@@ -18,6 +24,8 @@ export const ApiProvider = ({ children }: { children: ReactNode }) => {
   const [AllRestaurantsAPI, setAllRestaurantsAPI] = useState<Api_Type_Restaurantes[] | null>(null)
   const [RestaurantAPI, setRestaurantAPI] = useState<Api_Type_Restaurantes | null>(null)
   const [ItemAPI, setItemAPI] = useState<Api_Type_Cardapio | null>(null)
+  const [restaurantId, setRestaurantId] = useState(0)
+  const [itemId, setItemId] = useState(0)
 
   return (
     <ApiContext.Provider
@@ -27,7 +35,11 @@ export const ApiProvider = ({ children }: { children: ReactNode }) => {
         RestaurantAPI,
         setRestaurantAPI,
         ItemAPI,
-        setItemAPI
+        setItemAPI,
+        restaurantId,
+        setRestaurantId,
+        itemId,
+        setItemId
       }}
     >
       {children}

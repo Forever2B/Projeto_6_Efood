@@ -17,12 +17,12 @@ export type Api_Type_Restaurantes = {
 }
 
 export type Api_Type_Cardapio = {
-  foto: string
-  preco: number
-  id: number
-  nome: string
-  descricao: string
-  porcao: string
+  foto: string| undefined
+  preco: number | undefined
+  id: number | undefined
+  nome: string | undefined
+  descricao?: string
+  porcao?: string
 }
 
 const BASE_URL = 'https://fake-api-tau.vercel.app/api/efood/restaurantes'
@@ -56,7 +56,7 @@ export async function fetchMenuItem(
 
 
 export function useApiLoader() {
-  const { setAllRestaurantsAPI, setRestaurantAPI, setItemAPI } = useApi()
+  const { setAllRestaurantsAPI, setRestaurantAPI, restaurantId} = useApi()
 
 
   useEffect(() => {
@@ -66,21 +66,18 @@ export function useApiLoader() {
   }, [setAllRestaurantsAPI])
 
   useEffect(() => {
-    const restaurantId = 1
     fetchRestaurantById(restaurantId)
       .then(setRestaurantAPI)
       .catch((err) => console.error('Erro ao carregar restaurante do ID:', err))
-  }, [setRestaurantAPI])
+  }, [restaurantId, setRestaurantAPI])
 
-  useEffect(() => {
-    const restaurantId = 1
-    const itemId = 2
-    fetchMenuItem(restaurantId, itemId)
-      .then((item) => {
-        if (item) {
-          setItemAPI(item)
-        }
-      })
-      .catch((err) => console.error('Erro ao carregar item de cardápio:', err))
-  }, [setItemAPI])
+  // useEffect(() => {
+  //   fetchMenuItem(restaurantId, itemId)
+  //     .then((item) => {
+  //       if (item) {
+  //         setItemAPI(item)
+  //       }
+  //     })
+  //     .catch((err) => console.error('Erro ao carregar item de cardápio:', err))
+  // }, [restaurantId, setRestaurantAPI, itemId, setItemAPI])
 }

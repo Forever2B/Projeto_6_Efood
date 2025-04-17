@@ -1,5 +1,7 @@
 import styled, { createGlobalStyle } from 'styled-components'
 
+
+
 const GlobalStyle = createGlobalStyle`
   /* Reset básico */
   * {
@@ -29,6 +31,7 @@ const GlobalStyle = createGlobalStyle`
 
   .LoadingStyle{
     margin: 80px;
+    margin-top: 120px;
     font-size: 50px;
     font-weight: 700;
     color: #E66767;
@@ -53,12 +56,28 @@ const GlobalStyle = createGlobalStyle`
     }
     animation: balance 1s ease-in-out infinite;
   }
+
+  /* Alvo para WebKit (Chrome, Edge, etc.) */
+::-webkit-scrollbar {
+  width: 8px; /* largura da barra */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* fundo da área do scroll */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 0, 0, 0.5); /* cor + opacidade */
+  border-radius: 20px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
 `
 
 export const ListagemContainer = styled.div`
     display: flex;
     width: 100%;
-    padding-bottom: 120px;
     justify-content: center;
 `
 
