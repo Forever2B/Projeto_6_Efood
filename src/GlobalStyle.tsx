@@ -26,6 +26,33 @@ const GlobalStyle = createGlobalStyle`
         color:#E66767;
         cursor: pointer;
   }
+
+  .LoadingStyle{
+    margin: 80px;
+    font-size: 50px;
+    font-weight: 700;
+    color: #E66767;
+    text-align: center;
+
+    @keyframes balance {
+      0% {
+        transform: rotate(0deg);
+      }
+      25% {
+        transform: rotate(-5deg);
+      }
+      50% {
+        transform: rotate(0deg);
+      }
+      75% {
+        transform: rotate(5deg);
+      }
+      100% {
+        transform: rotate(0deg);
+      }
+    }
+    animation: balance 1s ease-in-out infinite;
+  }
 `
 
 export const ListagemContainer = styled.div`
