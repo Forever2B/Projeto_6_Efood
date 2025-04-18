@@ -10,11 +10,13 @@ export function LojaBanner () {
     if (!RestaurantAPI) return (<s.Banner imgBanner='https://t4.ftcdn.net/jpg/01/84/65/81/360_F_184658151_AgNIyLDq1uTeWimbkTUcF9osyZHI1Pj2.jpg'></s.Banner>)
     return(
     <s.Banner imgBanner={RestaurantAPI.capa}>
-        <div>
-            <span>{RestaurantAPI.tipo}</span>
-            {RestaurantAPI.destacado ? (<span>Destaque da semana</span>): ''}
+        <div className='WidthBanner'>
+            <div className='tags'>
+                <span>{RestaurantAPI.tipo}</span>
+                {RestaurantAPI.destacado ? (<span>Destaque da semana</span>): ''}
+            </div>
+            <h2>{RestaurantAPI.titulo}</h2>
         </div>
-        <h2>{RestaurantAPI.titulo}</h2>
     </s.Banner>
     )
 }

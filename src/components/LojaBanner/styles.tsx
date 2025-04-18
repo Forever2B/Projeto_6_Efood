@@ -9,11 +9,12 @@ export const Banner = styled.div<BannerProps>`
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: 0px -500px;
-
     margin-bottom: 58px;
-
     position: relative;
-    display: block;
+    display: flex;
+    
+    
+    justify-content: center;
     width: 100%;
     height: 280px;
 
@@ -33,25 +34,30 @@ export const Banner = styled.div<BannerProps>`
     z-index: 1;
   }
 
+  .WidthBanner{
+    display: flex;
+    max-width: 1024px;
+    height: 100%;
+    width: 100%;
+    position: absolute
+  }
+
   span{
     font-size: 32px;
     font-weight: 100;
     margin-right: 32px;
     color: #fff;
   }
-  div {
-    position: absolute;
-    top: 25px;
-    left: 170px;
+  .tags{
+    margin-top: 25px;
   }
 
-  h2 {
+  h2{
     font-size: 32px;
     font-weight: 900;
     color: #fff;
 
     position: absolute;
     bottom: 32px;
-    left: 170px;
   }
 `
