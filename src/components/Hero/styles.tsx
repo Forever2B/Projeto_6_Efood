@@ -10,14 +10,23 @@ interface HeaderProps {
 export const HeaderHero = styled.header<HeaderProps>`
     width: 100%;
     height: ${({ isHome }) => (isHome ? '384px' : '186px')};
-    padding: 40px;
     margin-bottom: ${({ isHome }) => (isHome ? '80px' : '0px')};
 
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-
     background-image: url(${HeroBack});
+
+    .WidthHeader {
+        position: relative;
+        margin: auto;
+        display:flex;
+        display: flex;
+        padding: 40px 0px;
+        max-width: 1024px;
+        height: 100%;
+        width: 100%;
+        flex-direction: ${({ isHome }) => (isHome ? 'column' : '')};
+        align-items: ${({ isHome }) => (isHome ? 'center' : '')};
+        justify-content: space-between;
+    }
     
     div {
         height: 100%;
@@ -25,14 +34,15 @@ export const HeaderHero = styled.header<HeaderProps>`
     }
 
     img {
-        display: block;
         width: 125px;
         height: 57.5px;
     }
     .buttonStyle {
         text-decoration: none;
 
-        top: 60px;
+        margin: 17.75px 0px;
+        /* top: 60px; */
+        height: 22px;
         font-size: 18px;
         font-weight: 900;
         transition-duration: 0.1s;
@@ -58,8 +68,7 @@ export const Title = styled.h2`
 `
 
 export const CarrinhoButton = styled.button`
-    position: absolute;
-    right: 170px;
+    /* position: absolute; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -68,6 +77,5 @@ export const CarrinhoButton = styled.button`
     }
 `
 export const ReturnButton = styled(Link)`
-        position: absolute;
-        left: 170px;
+        /* position: absolute; */
 `

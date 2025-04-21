@@ -19,25 +19,27 @@ export default function Hero() {
 
     return (
         <s.HeaderHero isHome={isHome}>
-                {!isHome ? (
-                    <s.ReturnButton className='buttonStyle' to={'../'}>Voltar aos restaurantes</s.ReturnButton>
+            <div className='WidthHeader'>
+                    {!isHome ? (
+                        <s.ReturnButton className='buttonStyle' to={'../'}>Voltar aos restaurantes</s.ReturnButton>
+                    ): ''}
+                <div>
+                    <h1>
+                        <img src={logo} alt="EFood" />
+                    </h1>
+                </div>
+                    {!isHome ? (
+                        <s.CarrinhoButton onClick={() => abrirCarrinho()} type='button' className='buttonStyle'>
+                            <span>{produtosNoCarrinho} produto(s) no carrinho</span>
+                            <FaShoppingBasket />
+                        </s.CarrinhoButton>
+                    ): ''}
+                {isHome ? (
+                    <s.Title>
+                        Viva experiências gastronômicas no conforto da sua casa
+                    </s.Title>
                 ): ''}
-            <div>
-                <h1>
-                    <img src={logo} alt="EFood" />
-                </h1>
             </div>
-                {!isHome ? (
-                    <s.CarrinhoButton onClick={() => abrirCarrinho()} type='button' className='buttonStyle'>
-                        <span>{produtosNoCarrinho} produto(s) no carrinho</span>
-                        <FaShoppingBasket />
-                    </s.CarrinhoButton>
-                ): ''}
-            {isHome ? (
-                <s.Title>
-                    Viva experiências gastronômicas no conforto da sua casa
-                </s.Title>
-            ): ''}
         </s.HeaderHero>
     )
 }
