@@ -73,6 +73,12 @@ const GlobalStyle = createGlobalStyle`
   background-clip: padding-box;
 }
 
+  .ErrorClass {
+    font-size: 12px;
+    line-height: 20px;  
+    vertical-align: center;
+    cursor: default;
+  }
 `
 
 export const ListagemContainer = styled.div`

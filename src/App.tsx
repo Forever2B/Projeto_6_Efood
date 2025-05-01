@@ -1,6 +1,6 @@
 // App.tsx
 import { Routes, Route } from 'react-router-dom'
-import { AppProviders } from './GlobalContext.tsx'
+import { AppProviders } from './Contexts/GlobalContext.tsx'
 // Rotas
 import Home from './pages/Home.tsx'
 import PageShop from './pages/PageShop.tsx'

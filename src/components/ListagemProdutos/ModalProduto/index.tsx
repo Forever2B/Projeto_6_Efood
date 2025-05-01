@@ -25,6 +25,14 @@ export function ModalProduto({isAtiveSend}: FilhoProps) {
         isAtiveSend(false);
     };
 
+    const formatarPreco = (valor: number | undefined) => {
+        return new Intl.NumberFormat('pt-BR', {
+          style: 'currency',
+          currency: 'BRL',
+          minimumFractionDigits: 2
+        }).format(valor ?? 0);
+      };
+
     return (
         <s.ProductModalContainer onClick={handleClickCancel}>
             <s.CardModal onClick={(e) => e.stopPropagation()}>
@@ -35,7 +43,9 @@ export function ModalProduto({isAtiveSend}: FilhoProps) {
                         <p className='spacing'>{ItemAPI?.descricao}</p>
                         <p>Serve {ItemAPI?.porcao}</p>
                     </div>
-                    <button type='button' onClick={handleClickADD} className='buttonStyle'>Adicionar ao carrinho - R$ {ItemAPI?.preco}</button>
+                    <button type='button' onClick={handleClickADD} className='buttonStyle'>
+                        Adicionar ao carrinho - {formatarPreco(ItemAPI?.preco)}
+                    </button>
                 </s.ContainerTextModal>
             </s.CardModal>
         </s.ProductModalContainer>

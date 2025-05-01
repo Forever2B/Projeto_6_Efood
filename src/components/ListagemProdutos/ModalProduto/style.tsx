@@ -81,10 +81,11 @@ export const ContainerTextModal = styled.div `
         position: absolute;
         cursor: pointer;
         transform-origin: center;
-
+        
+        transition: filter 0.3s ease;
         &:hover {
-            transition: ease-in-out 0.1s;
-            transform: scale(103%);
-        }
+            background-color: rgba(255, 235, 217, 0.8);
+            filter: brightness(0.85);
+    }
     }
 `

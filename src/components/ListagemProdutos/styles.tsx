@@ -44,7 +44,12 @@ export const CardContainer = styled.div`
         height: 24px;
         margin-top: 4px;
         margin-bottom: 0px;
-        cursor: pointer;    
+        cursor: pointer; 
+        transition: filter 0.3s ease;
+        &:hover {
+            background-color: rgba(255, 235, 217, 0.8);
+            filter: brightness(0.9);
+    }
     }
 
     ::-webkit-scrollbar-thumb {

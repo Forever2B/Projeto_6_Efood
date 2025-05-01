@@ -1,11 +1,17 @@
+import { useEffect } from 'react';
 import { AsidesProps } from '..';
+// Contexts
 import { useUI } from '../../../../Contexts/UIContext';
+import { useApi } from '../../../../Contexts/ApiContext';
+import { useCarrinho } from '../../../../Contexts/ContextCarrinho';
 // Styles
 import * as s from './styles';
 //
 
 export function AsideFinish({setarAside}: AsidesProps) {
-    const { fecharCarrinho } = useUI();
+    const { fecharCarrinho} = useUI();
+    const { limparCarrinho, toggleLimpeza, ligarLimpezaDeDados  } = useCarrinho();
+    const {limparOrderInformations } = useApi();
 
     const makeID = (tamanho = 6) => {
         let id = '';
@@ -23,9 +29,17 @@ export function AsideFinish({setarAside}: AsidesProps) {
     const handleClick = () => {
         setarAside('CARRINHO');
         fecharCarrinho()
-
     }
 
+    useEffect(() => {
+        if (toggleLimpeza) {
+            console.log('Iniciando limpeza de dados locais...')
+            limparOrderInformations()
+            ligarLimpezaDeDados()
+            limparCarrinho()
+        }
+    }, [toggleLimpeza]);
+    
     return (
         <>
             <s.AsideFinishContainer>

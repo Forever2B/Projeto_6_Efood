@@ -17,7 +17,7 @@ export const UIProvider = ({ children }: { children: ReactNode }) => {
   const alternarCarrinho = () => setCarrinhoAberto(prev => !prev);
 
   return (
-    <UIContext.Provider value={{ carrinhoAberto, abrirCarrinho, fecharCarrinho, alternarCarrinho }}>
+    <UIContext.Provider value={{ carrinhoAberto, abrirCarrinho, fecharCarrinho, alternarCarrinho}}>
       {children}
     </UIContext.Provider>
   );

@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 
 export const AsidePaymentForm = styled.form`
     width: 345px;
-    height: 219px;
+    /* height: 219px; */
     display: flex;
     flex-direction: column;
     color: #FFEBD9;
@@ -11,13 +11,13 @@ export const AsidePaymentForm = styled.form`
         height: 19px;
         font-size: 16px;
         font-weight: 700;
-        margin-bottom: 16px;
+        margin-bottom: 8px;
     }
     .divsLabelXinput{
         display: flex;
         flex-direction: column;
-        margin-bottom: 8px;
-        height: 56px;
+        margin-top: 8px;
+        /* height: 56px; */
         
         label {
             margin-bottom: 8px;

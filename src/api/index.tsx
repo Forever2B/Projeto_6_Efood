@@ -1,9 +1,5 @@
 import { useEffect } from 'react'
-import { useApi } from '../Contexts/ApiContext' // Importa o hook do contexto
-
-export type Api_Type_All = {
-  Restaurantes: Api_Type_Restaurantes[]
-}
+import { useApi } from '../Contexts/ApiContext'
 
 export type Api_Type_Restaurantes = {
   id: number
@@ -24,6 +20,40 @@ export type Api_Type_Cardapio = {
   descricao?: string
   porcao?: string
 }
+//
+export type Api_Type_Order = {
+  products: Api_Type_Items[] | null
+  delivery: Api_Type_Entrega | null
+  payment: Api_Type_Pagamento | null
+}
+
+export type Api_Type_Items = {
+  id: number | undefined
+  price: number | undefined
+}
+export type Api_Type_Entrega = {
+  receiver: string
+  address: {
+    description: string
+    city: string
+    zipcode: number
+    number: number
+    complement?: string
+  }
+}
+export type Api_Type_Pagamento = {
+  card : {
+    name: string
+    number: number
+    code: number
+    expires: {
+      month: number
+      year: number
+    }
+  }
+}
+//
+
 
 const BASE_URL = 'https://fake-api-tau.vercel.app/api/efood/restaurantes'
 
@@ -44,6 +74,21 @@ export async function fetchRestaurantById(id: number): Promise<Api_Type_Restaura
   const data = await response.json()
   return data
 }
+
+export const enviarPedido = async (order: Api_Type_Order ) => {
+  const response = await fetch('https://fake-api-tau.vercel.app/api/efood/checkout', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(order)
+  }
+);
+
+  if (!response.ok) {
+    return [false];
+  }
+
+  return [true];
+};
 
 export async function fetchMenuItem(
   restaurantId: number,
@@ -70,14 +115,4 @@ export function useApiLoader() {
       .then(setRestaurantAPI)
       .catch((err) => console.error('Erro ao carregar restaurante do ID:', err))
   }, [restaurantId, setRestaurantAPI])
-
-  // useEffect(() => {
-  //   fetchMenuItem(restaurantId, itemId)
-  //     .then((item) => {
-  //       if (item) {
-  //         setItemAPI(item)
-  //       }
-  //     })
-  //     .catch((err) => console.error('Erro ao carregar item de cardápio:', err))
-  // }, [restaurantId, setRestaurantAPI, itemId, setItemAPI])
 }

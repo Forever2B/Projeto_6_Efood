@@ -7,9 +7,9 @@ import * as s from './styles'
 export function LojaBanner () {
     const { RestaurantAPI } = useApi()
 
-    if (!RestaurantAPI) return (<s.Banner imgBanner='https://t4.ftcdn.net/jpg/01/84/65/81/360_F_184658151_AgNIyLDq1uTeWimbkTUcF9osyZHI1Pj2.jpg'></s.Banner>)
+    if (!RestaurantAPI) return (<s.Banner imgbanner='https://t4.ftcdn.net/jpg/01/84/65/81/360_F_184658151_AgNIyLDq1uTeWimbkTUcF9osyZHI1Pj2.jpg'></s.Banner>)
     return(
-    <s.Banner imgBanner={RestaurantAPI.capa}>
+    <s.Banner imgbanner={RestaurantAPI.capa}>
         <div className='WidthBanner'>
             <div className='tags'>
                 <span>{RestaurantAPI.tipo}</span>

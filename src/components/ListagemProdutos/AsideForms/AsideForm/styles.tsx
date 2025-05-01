@@ -3,7 +3,7 @@ import { styled } from "styled-components";
 
 export const AsideForm = styled.form`
     width: 345px;
-    height: 347px;
+    height: auto px;
     display: flex;
     flex-direction: column;
     color: #FFEBD9;
@@ -12,12 +12,12 @@ export const AsideForm = styled.form`
         height: 19px;
         font-size: 16px;
         font-weight: 700;
-        margin-bottom: 16px;
+        margin-bottom: 8px;
     }
     .divsLabelXinput{
         display: flex;
         flex-direction: column;
-        margin-bottom: 8px;
+        margin-top: 8px;
         height: 56px;
         
         label {

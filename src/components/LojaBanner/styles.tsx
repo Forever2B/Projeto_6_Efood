@@ -1,11 +1,11 @@
 import { styled } from "styled-components";
 
 interface BannerProps {
-    imgBanner: string,
+    imgbanner: string,
 }
 
 export const Banner = styled.div<BannerProps>`
-    background-image: url(${p => p.imgBanner});
+    background-image: url(${p => p.imgbanner});
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: 0px -500px;
